@@ -1,6 +1,6 @@
 # KNN algorithm
 
-Website demo: https://knn-algorithm-pbhg5sumywziybtjbpzibw.streamlit.app/
+Website demo: https://knn-algorithm-dbibnlwgfsnvbjdclzwpru.streamlit.app/
 
 <img alt="img.png" height="320" src="static/images/img.png" width="320" />
 
