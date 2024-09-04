@@ -27,18 +27,18 @@ class IntroductionView(BaseView):
 			st.warning(f"**Dimension:**\n\n{dimension_data} ")
 		st.subheader("Overview")
 		st.dataframe(data.head(), width = 13 * 80)
-		file_path = "knn_overview.png"
+		file_path = "../../static/images/knn_overview.png"
 		embed_image(file_path = file_path, width = 60, height = 'auto')
 		st.header("Về thuật toán")
-		st.info(display_file_content('KNN_kn.txt'))
+		st.info(display_file_content('../../static/text/KNN_kn.txt'))
 		col4, col5 = st.columns(2)
 		with col4:
 			st.subheader("Nguyên lý hoạt động cơ bản")
-			st.info(display_file_content('KNN_nlhdcb.txt'))
+			st.info(display_file_content('../../static/text/KNN_nlhdcb.txt'))
 
 		with col5:
 			st.subheader("Bài toán giải quyết")
-			st.info(display_file_content('KNN_vdgq.txt'))
+			st.info(display_file_content('../../static/text/KNN_vdgq.txt'))
 		st.subheader("Giải thích nguyên lý")
-		st.info(display_file_content('KNN_nlhdct.txt'))
-		embed_image('nguyenlihoatdong_knn.png', width = 40, height = 'auto')
+		st.info(display_file_content('../../static/text/KNN_nlhdct.txt'))
+		embed_image('../../static/images/nguyenlihoatdong_knn.png', width = 40, height = 'auto')

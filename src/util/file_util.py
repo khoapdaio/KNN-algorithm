@@ -6,8 +6,6 @@ import streamlit as st
 
 def display_file_content(file_path):
 	current_dir = os.path.dirname(os.path.abspath(__file__))
-	current_dir = current_dir.replace('src', 'static')
-	current_dir = current_dir.replace('util', 'text')
 	full_file_path = os.path.join(current_dir, file_path)
 	if os.path.exists(full_file_path):
 		with open(full_file_path, "r", encoding = "utf-8") as file:
@@ -24,8 +22,6 @@ def display_file_content(file_path):
 
 def embed_image(file_path, width, height):
 	current_dir = os.path.dirname(os.path.abspath(__file__))
-	current_dir = current_dir.replace('src', 'static')
-	current_dir = current_dir.replace('util', 'images')
 	full_file_path = os.path.join(current_dir, file_path)
 
 	with open(full_file_path, "rb") as image_file:
