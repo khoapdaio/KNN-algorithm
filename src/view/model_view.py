@@ -1,13 +1,7 @@
-import numpy as np
 import pandas as pd
 import streamlit as st
-import plotly.express as px
-import plotly.graph_objects as go
-from pkg_resources import require
-
 from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split
-from sklearn.neighbors import KNeighborsClassifier
 
 from model import KnnModel
 from model.plot_knn_model import PlotKnnModel
@@ -88,7 +82,6 @@ class ModelView(BaseView):
 				distances = pd.DataFrame(knn_model.get_distances([x_point, y_point]),
 				                         columns = ['Distance', 'Neighbor Point', 'N.Class'])
 				st.dataframe(distances, width = 320)
-
 
 	def __get_formula(self, name):
 		return self.formula_dic[name]()
