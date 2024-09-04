@@ -2,14 +2,14 @@
 
 Website demo: https://knn-algorithm-pbhg5sumywziybtjbpzibw.streamlit.app/
 
-![img.png](static/images/img.png)
+<img alt="img.png" height="320" src="static/images/img.png" width="320" />
 
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#about the project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
@@ -17,16 +17,13 @@ Website demo: https://knn-algorithm-pbhg5sumywziybtjbpzibw.streamlit.app/
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#directory_struture">Directory Structure</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 <!-- ABOUT THE PROJECT -->
@@ -50,7 +47,7 @@ thuật toán.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Được xây dựng trên
+### Built With
 
 #### Ngôn ngữ: Python
 
@@ -123,15 +120,15 @@ thuật toán.
 
 <!-- ROADMAP -->
 
-## Cấu trúc dự án(Directory Structure)
+## Directory Structure
 
 - `static/`: Lưu trữ dữ liệu tĩnh.
 - `static/image/`: Lưu trữ ảnh của dự án (Stores project images)
+- `static/text/`: Lưu trữ dữ liệu chữ của dự án (Stores project text)
 - `src/model/`: Chứa các file model  .
-- `src//`: Chứa các file model  .
+- `src/ultil/`: Chứa các file tiện ích  .
 - `src/view/`: Chứa các file chức năng hiển thị.
 - `src/app.py`: File app khởi chạy dự án
-- `Report/`: Lưu trữ thông tin báo cáo chi tiết.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
