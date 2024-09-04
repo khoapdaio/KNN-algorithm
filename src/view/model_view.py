@@ -45,7 +45,7 @@ class ModelView(BaseView):
 			knn_model.set_k(k_value)
 		with col2:
 			self.__get_formula(distance_compute)
-			embed_image("distance_a_b.png", 40, 'auto')
+			embed_image("../../static/images/distance_a_b.png", 40, 'auto')
 
 		X = data_set().data
 		y = data_set().target
