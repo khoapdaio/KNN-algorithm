@@ -38,8 +38,8 @@ def main():
 	with st.sidebar:
 		selected_option = option_menu(
 			menu_title = "Main Menu",
-			options = ["Overview", "Statistics", "Model", "Contact"],
-			icons = ["house", "book", "modem", "phone"],
+			options = ["Overview", "Statistics", "Model"],
+			icons = ["house", "book", "modem"],
 			menu_icon = "menu-up"
 
 		)

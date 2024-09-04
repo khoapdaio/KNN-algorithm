@@ -3,9 +3,11 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
+from pkg_resources import require
 
 from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
 
 from model import KnnModel
 from model.plot_knn_model import PlotKnnModel
@@ -57,7 +59,7 @@ class ModelView(BaseView):
 		X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.5, random_state = 4)
 		plot_knn_model = PlotKnnModel()
 
-		tab1, tab2 = st.tabs(["1", "2"])
+		tab1, tab2 = st.tabs(["Dự đoán", "Dự đoán theo điểm"])
 
 		with tab1:
 			if st.button('Predict'):
@@ -77,47 +79,16 @@ class ModelView(BaseView):
 			data['target'] = data_set().target
 
 			list_statistics = st.multiselect("Chọn cột để thống kê", data.columns, max_selections = 2)
-			df_statistics = data[list_statistics + ['target']]
 			knn_model.fit(data[list_statistics].values, y)
 
 			x_point = st.number_input("X value", value = 1.0)
 			y_point = st.number_input("Y value", value = 1.0)
 
 			if st.button('Predict with point'):
-				x_1 = df_statistics[df_statistics['target'] == 0][list_statistics[0]]
-				x_2 = df_statistics[df_statistics['target'] == 1][list_statistics[0]]
-				x_3 = df_statistics[df_statistics['target'] == 2][list_statistics[0]]
-				y_1 = df_statistics[df_statistics['target'] == 0][list_statistics[1]]
-				y_2 = df_statistics[df_statistics['target'] == 1][list_statistics[1]]
-				y_3 = df_statistics[df_statistics['target'] == 2][list_statistics[1]]
+				distances = pd.DataFrame(knn_model.get_distances([x_point, y_point]),
+				                         columns = ['Distance', 'Neighbor Point', 'N.Class'])
+				st.dataframe(distances, width = 320)
 
-				fig = go.Figure()
-
-				# Add traces
-				fig.add_trace(go.Scatter(x = x_1, y = y_1,
-				                         mode = 'markers',
-				                         name = data_set().target_names[0], ))
-				fig.add_trace(go.Scatter(x = x_2, y = y_2,
-				                         mode = 'markers',
-				                         name = data_set().target_names[1]))
-				fig.add_trace(go.Scatter(x = x_3, y = y_3,
-				                         mode = 'markers',
-				                         name = data_set().target_names[2]))
-
-				distances = knn_model.get_distances([x_point, y_point])
-				x_4 = []
-				y_4 = []
-				for i in range(k_value):
-					x_4.append(distances[i][1][0])
-					x_4.append(x_point)
-					y_4.append(distances[i][1][1])
-					y_4.append(y_point)
-				fig.add_trace(go.Line(x = x_4, y = y_4, name = "distance",text = list_statistics[0]))
-				st.plotly_chart(fig)
-			X = df_statistics.values
-			y = data['target'].values
-
-			knn_model.fit(X, y)
 
 	def __get_formula(self, name):
 		return self.formula_dic[name]()
